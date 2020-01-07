@@ -1,0 +1,1 @@
+README for pyMARS - a Python Core Wars memory array Redcode-94 simulator with ICWS'94 extensions.
