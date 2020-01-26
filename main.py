@@ -1,4 +1,4 @@
-from op_codes import op_codes
+from op_codes import mov
 
 
 class Instruction():
@@ -115,8 +115,8 @@ if __name__ == "__main__":
     src_reg = Register()  # source register
     dst_reg = Register()  # destination register
     core = Core(7)
-    mov = Instruction("MOV", "I", "$", 0, "$", 1)
-    core.set_at(0, mov)  # load mov instruction at 0
+    mov1 = Instruction("MOV", "I", "$", 0, "$", 1)
+    core.set_at(0, mov1)  # load mov instruction at 0
     # execution
     # fetch
     ins_reg.fetch(core, 0)  # fetch instruction at 0
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     # execute
     # ins_reg.ins.modifier
     print(dst_reg.ins)
-    op_codes.mov.execute_i(ins_reg, src_reg, dst_reg)
+    mov.mov.execute_i(ins_reg, src_reg, dst_reg)
     print(dst_reg.ins)
     print()
     core.set_at(dst_reg.adr, dst_reg.ins)
