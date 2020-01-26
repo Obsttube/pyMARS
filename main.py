@@ -1,3 +1,6 @@
+from op_codes import op_codes
+
+
 class Instruction():
 
     def __init__(self, op_code, modifier, a_mode, a, b_mode, b):
@@ -124,3 +127,10 @@ if __name__ == "__main__":
     dst_reg.fetch(core, __decode_field(core, ins_reg.adr, "b"))
     print(core)
     # execute
+    # ins_reg.ins.modifier
+    print(dst_reg.ins)
+    op_codes.mov.execute_i(ins_reg, src_reg, dst_reg)
+    print(dst_reg.ins)
+    print()
+    core.set_at(dst_reg.adr, dst_reg.ins)
+    print(core)
