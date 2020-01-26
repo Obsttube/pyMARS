@@ -1,4 +1,4 @@
-from op_codes import mov
+from operators import op_codes
 
 
 class Instruction():
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     # execute
     # ins_reg.ins.modifier
     print(dst_reg.ins)
-    mov.mov.execute_i(ins_reg, src_reg, dst_reg)
+    op_codes.execute(ins_reg, src_reg, dst_reg)
     print(dst_reg.ins)
     print()
     core.set_at(dst_reg.adr, dst_reg.ins)
