@@ -80,29 +80,29 @@ def __decode_field(core, adr, field_type):  # get address from field
         adr += field
         intermed = core.get_at(adr)
         intermed.a -= 1
-        intermed %= core.size
+        intermed.a %= core.size
         core.set_at(adr, intermed)
         adr += intermed.a
     elif field_mode == "}":
         adr += field
         intermed = core.get_at(adr)
-        intermed.b -= 1
-        intermed %= core.size
+        adr += intermed.a
+        intermed.a -= 1
+        intermed.a %= core.size
         core.set_at(adr, intermed)
-        adr += intermed.b
     elif field_mode == "<":
         adr += field
         intermed = core.get_at(adr)
-        adr += intermed.a
-        intermed.a -= 1
-        intermed %= core.size
+        intermed.b -= 1
+        intermed.b %= core.size
         core.set_at(adr, intermed)
+        adr += intermed.b
     elif field_mode == ">":
         adr += field
         intermed = core.get_at(adr)
         adr += intermed.b
         intermed.b -= 1
-        intermed %= core.size
+        intermed.b %= core.size
         core.set_at(adr, intermed)
     else:
         return  # TODO change to throwing exception
@@ -115,8 +115,10 @@ if __name__ == "__main__":
     src_reg = Register()  # source register
     dst_reg = Register()  # destination register
     core = Core(7)
-    mov1 = Instruction("MOV", "I", "$", 0, "$", 1)
-    core.set_at(0, mov1)  # load mov instruction at 0
+    # load instruction at 0
+    core.set_at(0, Instruction("ADD", "I", "$", 1, "$", 2))
+    core.set_at(1, Instruction("DAT", "A", "$", 1, "$", 2))
+    core.set_at(2, Instruction("DAT", "A", "$", 3, "$", 4))
     # execution
     # fetch
     ins_reg.fetch(core, 0)  # fetch instruction at 0
@@ -129,8 +131,7 @@ if __name__ == "__main__":
     # execute
     # ins_reg.ins.modifier
     print(dst_reg.ins)
-    op_codes.execute(ins_reg, src_reg, dst_reg)
+    op_codes.execute(core, ins_reg, src_reg, dst_reg)
     print(dst_reg.ins)
     print()
-    core.set_at(dst_reg.adr, dst_reg.ins)
     print(core)
