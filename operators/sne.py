@@ -32,14 +32,7 @@ class sne(op_codes.Op_code):
 
     @staticmethod
     def execute_i(core, ins_reg, src_reg, dst_reg):
-        src_ins = src_reg.ins
-        dst_ins = dst_reg.ins
-        if (src_ins.a != dst_ins.a
-                or src_ins.b != dst_ins.b
-                or src_ins.op_code != dst_ins.op_code
-                or src_ins.modifier != dst_ins.modifier
-                or src_ins.a_mode != dst_ins.a_mode
-                or src_ins.b_mode != dst_ins.b_mode):
+        if src_reg.ins != dst_reg.ins:
             op_codes.increment_pointer(core, ins_reg)
 
     @staticmethod

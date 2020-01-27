@@ -32,14 +32,7 @@ class seq(op_codes.Op_code):
 
     @staticmethod
     def execute_i(core, ins_reg, src_reg, dst_reg):
-        src_ins = src_reg.ins
-        dst_ins = dst_reg.ins
-        if (src_ins.a == dst_ins.a
-                and src_ins.b == dst_ins.b
-                and src_ins.op_code == dst_ins.op_code
-                and src_ins.modifier == dst_ins.modifier
-                and src_ins.a_mode == dst_ins.a_mode
-                and src_ins.b_mode == dst_ins.b_mode):
+        if src_reg.ins == dst_reg.ins:
             op_codes.increment_pointer(core, ins_reg)
 
     @staticmethod

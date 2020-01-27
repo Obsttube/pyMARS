@@ -9,7 +9,8 @@ class Core():
         self.size = size
         self.__core = []
         for _ in range(size):
-            def_ins = instruction.Instruction("DAT", "F", "$", 0, "$", 0)
+            def_ins = instruction.Instruction(
+                self.size, "DAT", "F", "$", 0, "$", 0)
             self.__core.append(def_ins)  # fill core with DAT instructions
         self.ins_reg = register.Register()  # instruction register
         self.src_reg = register.Register()  # source register
