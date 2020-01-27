@@ -32,5 +32,8 @@ class spl(op_codes.Op_code):
 
     @staticmethod
     def execute_after(core, ins_reg, src_reg, dst_reg):
-        # TODO first execute next instruction and then spawn new process at (this)ins_reg.ins.a
-        pass
+        # TODO first execute next instruction and then spawn new process at ins_reg.ins.a
+        ins_reg.ins.last_warior.gui.core.execute(
+            ins_reg.ins.last_warior.processes[(
+                ins_reg.ins.last_warior.curr_proc_index+1) % core.size])
+        ins_reg.ins.last_warior.add_process(ins_reg.ins.a)

@@ -63,7 +63,7 @@ class Instruction():
         a = line[0].strip()  # "12"
         if not represents_int(a):
             print("a is not an integer")
-        a = int(a)
+        a = int(a)%core_size
         if len(line) == 1:
             b_mod = None
             b = None
@@ -77,7 +77,7 @@ class Instruction():
             b = line[1].strip()  # "1"
             if not represents_int(b):
                 print("b is not an integer")  # TODO: raise exceptions
-            b = int(b)
+            b = int(b)%core_size
         return cls(warior, core_size, instr_name, modifier, a_mod, a, b_mod, b)
 
 

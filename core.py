@@ -17,6 +17,10 @@ class Core():
         self.dst_reg = register.Register()  # destination register
         self.wariors = []
         self.curr_warior_index = 0
+        self.gui = None
+
+    def set_gui_callback(self, gui):
+        self.gui = gui
 
     def add_warior(self, warior):
         self.wariors.append(warior)
@@ -56,7 +60,7 @@ class Core():
 
     def get_winning_warior(self):
         for warior in self.wariors:
-            if len(warior.processes)>0:
+            if len(warior.processes) > 0:
                 return warior
 
     def execute_current_ins(self):
@@ -68,6 +72,7 @@ class Core():
             else:
                 return
         curr_ins_idx = curr_warior.get_instruction_index()
+        print(curr_ins_idx)
         self.set_last_warior(curr_ins_idx, curr_warior)
         curr_warior.next_instruction(self.size)
         self.execute(curr_ins_idx)
@@ -76,8 +81,10 @@ class Core():
 
     def __str__(self):
         output = ""
+        index=0
         for ins in self.__core:
-            output += str(ins)+"\n"
+            output += str(index)+". "+str(ins)+"\n"
+            index+=1
         return output
 
 
