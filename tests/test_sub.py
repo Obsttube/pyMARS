@@ -13,16 +13,16 @@ def test_a():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "A", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "A", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 2, "}", 7)
+        None, test_core.size, "MOV", "AB", "{", 2, "}", 7)
 
 
 def test_b():
@@ -35,16 +35,16 @@ def test_b():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "B", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "B", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 3)
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 3)
 
 
 def test_ab():
@@ -57,16 +57,16 @@ def test_ab():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "AB", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "AB", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 4)
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 4)
 
 
 def test_ba():
@@ -79,16 +79,16 @@ def test_ba():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "BA", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "BA", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 1, "}", 7)
+        None, test_core.size, "MOV", "AB", "{", 1, "}", 7)
 
 
 def test_f():
@@ -101,16 +101,16 @@ def test_f():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "F", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "F", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 2, "}", 3)
+        None, test_core.size, "MOV", "AB", "{", 2, "}", 3)
 
 
 def test_x():
@@ -123,16 +123,16 @@ def test_x():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "X", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "X", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 1, "}", 4)
+        None, test_core.size, "MOV", "AB", "{", 1, "}", 4)
 
 
 def test_i():
@@ -145,13 +145,13 @@ def test_i():
     test_core = core.Core(100)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(
-        test_core.size, "SUB", "I", "$", 1, "$", 2))
+        None, test_core.size, "SUB", "I", "$", 1, "$", 2))
     test_core.set_at(1, instruction.Instruction(
-        test_core.size, "ADD", "B", "#", 3, "*", 4))
+        None, test_core.size, "ADD", "B", "#", 3, "*", 4))
     test_core.set_at(2, instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 5, "}", 7))
+        None, test_core.size, "MOV", "AB", "{", 5, "}", 7))
     # execute only the first instruction
     test_core.execute(0)
     # check if it was executed correctly (if third block was updated with correct values)
     assert test_core.get_at(2) == instruction.Instruction(
-        test_core.size, "MOV", "AB", "{", 2, "}", 3)
+        None, test_core.size, "MOV", "AB", "{", 2, "}", 3)
