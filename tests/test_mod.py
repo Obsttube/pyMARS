@@ -34,7 +34,7 @@ def test_a_zero():
     so core_size must be greater.
     '''
     test_core = core.Core(100)
-    test_warior = warior.Warior("test_warior", "#ff0000", 0)
+    test_warior = warior.Warior("test_warior", "#ff0000")
     test_core.add_warior(test_warior)
     # add instructions to core
     test_core.set_at(0, instruction.Instruction(

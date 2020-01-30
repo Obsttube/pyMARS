@@ -12,7 +12,8 @@ def test_a():
     so core_size must be greater.
     '''
     test_core = core.Core(100)
-    test_warior = warior.Warior("test_warior", "#ff0000", 3)
+    test_warior = warior.Warior("test_warior", "#ff0000")
+    test_warior.add_process(3)
     test_core.add_warior(test_warior)
     # add instruction to core
     test_core.set_at(3, instruction.Instruction(
